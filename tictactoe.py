@@ -1,7 +1,64 @@
 import tkinter
 
 def set_tile(row, column):
-    pass 
+    global current_player
+
+    if (game_over):
+        return
+
+    if board[row][column]["text"] != "":  # Verificando se o botão já está sendo marcado, para não ter problema de estar reescrevendo ele
+        return 
+
+    board[row][column]['text'] = current_player # Marcando no board a jogada do jogador da vez
+
+    # Alternando a vez dos jogadores
+    if current_player == playerO:
+        current_player = playerX
+    else:
+        current_player = playerO
+
+    label["text"] = current_player+"'s turn"
+
+    check_winner()
+
+def check_winner():
+    global turns, game_over
+    turns +=1
+
+    # Verificando vitória na horizontal, 3 linhas 
+    for row in range(3):
+        if (board[row][0]["text"] == board[row][1]["text"] == board[row][2]["text"] and board[row][0]["text"] != ""):
+            label.config(text=board[row][0]["text"]+" is the winner!", foreground=color_green)
+            for column in range(3): # Pintando as marcações da vitória de cores diferentes para se destacar
+                board[row][column].config(foreground=color_green, background=color_light_gray)
+            game_over = True
+            return
+        
+    # Verificando vitória na vertical, 3 na coluna
+    for column in range(3):
+        if (board[0][column]["text"] == board[1][column]["text"] == board[2][column]["text"] and board[0][column]["text"] != ""):
+            label.config(text=board[0][column]["text"]+' is the winner!', foreground=color_green)
+            for row in range(3):
+                board[row][column].config(foreground=color_green, background=color_light_gray)
+            game_over = True
+            return
+
+    # Verificando cada vitória na diagonal
+    if (board[0][0]["text"] == board[1][1]["text"] == board[2][2]['text'] and board[0][0]["text"] != ""): 
+        label.config(text=board[0][0]["text"]+' is the winner!', foreground=color_green)
+        for i in range(3):
+            board[i][i].config(foreground=color_green, background=color_light_gray)
+        game_over = True
+        return
+    
+    # Verificando cada vitória na antidiagonal
+    if (board[0][2]["text"] == board[1][1]["text"] == board[2][0]['text'] and board[0][2]["text"] != ""): 
+        label.config(text=board[0][2]["text"]+' is the winner!', foreground=color_green)
+        board[0][2].config(foreground=color_green, background=color_light_gray)
+        board[1][1].config(foreground=color_green, background=color_light_gray)
+        board[2][0].config(foreground=color_green, background=color_light_gray)
+        game_over = True
+        return
 
 def new_game():
     pass
@@ -14,9 +71,12 @@ board = [[0, 0, 0],
          [0, 0, 0]]
 
 color_blue = "#4584b6"
-color_green = "#83E509"
+color_green = "#65b307"
 color_gray = "#343434"
 color_light_gray = "#646464"
+
+turns = 0
+game_over = False
 
 window = tkinter.Tk()
 window.title("Tic Tac Toe")
