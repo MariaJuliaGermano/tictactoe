@@ -63,10 +63,18 @@ def check_winner():
     # Verificando empate
     if turns == 9:
         game_over = True
-        label.config(text="Empate!", backgrforeground=color_yellow)
+        label.config(text="Empate!", background=color_gray, foreground=color_yellow)
 
 def new_game():
-    pass
+    global turns, game_over
+    turns = 0
+    game_over = False
+    label.config(text=current_player+"'s turn", foreground="white", background=color_gray)
+
+
+    for row in range(3):
+        for column in range(3):
+            board[row][column].config(text="", foreground=color_blue, background=color_gray)
 
 playerX = "X"
 playerO = "O"
@@ -75,7 +83,7 @@ board = [[0, 0, 0],
          [0, 0, 0],
          [0, 0, 0]]
 
-color_blue = "#4584b6"
+color_blue = "#FFA500"
 color_green = "#65b307"
 color_gray = "#343434"
 color_light_gray = "#646464"
@@ -101,7 +109,7 @@ for row in range(3):
         board[row][column].grid(row=row+1, column=column)
 
 
-button = tkinter.Button(frame, text="resetar", font=("Lato", 20), background=color_gray, foreground="white", command=new_game)
+button = tkinter.Button(frame, text="resetar", font=("Lato", 20), background=color_blue, foreground="white", command=new_game)
 
 button.grid(row=4, column=0, columnspan=3, sticky="we")
 

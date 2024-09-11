@@ -1,13 +1,20 @@
 # Jogo da Velha
 
-## Visão Geral
+## Descrição
 
-Esta é uma implementação simples do clássico jogo da velha usando a biblioteca `tkinter` do Python. O commit inicial configura a interface gráfica básica (GUI) do jogo, incluindo uma janela com um rótulo para indicar o turno atual do jogador.
+Este é um jogo de **Tic Tac Toe** (Jogo da Velha) desenvolvido em Python usando a biblioteca Tkinter para a interface gráfica. O jogo permite que dois jogadores se alternem para marcar suas jogadas em um tabuleiro 3x3. O objetivo é alinhar três símbolos (X ou O) na horizontal, vertical ou diagonal para vencer.
 
 ## Funcionalidades
 
-- GUI básica para o jogo da velha
-- Exibe o turno atual do jogador (`X` ou `O`)
+- **Jogar**: Dois jogadores podem se alternar jogando como X ou O.
+- **Detecção de Vitória**: O jogo verifica automaticamente se há um vencedor após cada jogada, destacando a linha vencedora.
+- **Empate**: O jogo detecta um empate quando todas as casas estão preenchidas e não há vencedor.
+- **Novo Jogo**: Um botão permite reiniciar o jogo, limpando o tabuleiro e começando uma nova partida.
+
+## Requisitos
+
+- Python 3.x
+- Tkinter (geralmente incluído com Python)
 
 ## Instalação
 
@@ -22,35 +29,23 @@ Para começar com este projeto, você precisará ter o Python instalado em sua m
 1. **Clone o Repositório**
 
    ```bash
-   git clone https://github.com/seunomeusuario/tictactoe.git
+   git clone https://github.com/MariaJuliaGermano/tictactoe.git
+   ```
 
 2. **Navegue até o diretório do projeto**
 
-```bash
-cd tictactoe
-```
+   ```bash
+   cd tictactoe
+   ```
 
 3. Execute o Aplicativo
 
-```
-python tictactoe.py
-```
-
-## Como jogar
-- A implementação atual apenas mostram uma janela básica com um rótulo indicando o turno atual do jogador.
-- O desenvolvimento futuro inclurá a adição do tabuleiro ddo jogo, manipulação das interações dos usários e implementação da lógica do jogo.
-
-## Melhorias Futuras
-- Adicionar uma grade 3x3 para representar o tabuleiro do jogo da velha.
-- Implementar funcionalidade para que os jogadores cliquem na grade para fazer suas jogadas.
-- Adicionar lógica para verificar condições de vitória e exibir o vencedor.
-- Oferecer opções para reiniciar o jogo ou começar um novo jogo.
-
-## Contribuindo
-- Contribuições para este projeto são bem-vindas! Sinta-se à vontade para fazer um fork do repositório e enviar pull requests com melhorias ou correções de bugs.
+   ```
+   python tictactoe.py
+   ```
 
 ## Contato
 Se você tiver alguma dúvida ou feedback, entre em contato:
 
-Maria Julia Germano - mariajuliapmgermano@gmail.com
-GitHub - https://github.com/MariaJuliaGermano
+- Maria Julia Germano - mariajuliapmgermano@gmail.com
+- GitHub - https://github.com/MariaJuliaGermano
