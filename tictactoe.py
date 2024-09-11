@@ -59,6 +59,11 @@ def check_winner():
         board[2][0].config(foreground=color_green, background=color_light_gray)
         game_over = True
         return
+    
+    # Verificando empate
+    if turns == 9:
+        game_over = True
+        label.config(text="Empate!", backgrforeground=color_yellow)
 
 def new_game():
     pass
@@ -74,6 +79,7 @@ color_blue = "#4584b6"
 color_green = "#65b307"
 color_gray = "#343434"
 color_light_gray = "#646464"
+color_yellow = "#ffae42"
 
 turns = 0
 game_over = False
